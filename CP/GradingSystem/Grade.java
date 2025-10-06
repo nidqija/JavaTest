@@ -1,4 +1,4 @@
-package CP;
+package CP.GradingSystem;
 
 public class Grade {
 

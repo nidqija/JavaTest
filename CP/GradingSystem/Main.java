@@ -1,4 +1,4 @@
-package CP;
+package CP.GradingSystem;
 import java.util.Scanner;
 
 public class Main {

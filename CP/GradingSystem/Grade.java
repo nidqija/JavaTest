@@ -46,7 +46,7 @@ public class Grade {
   
 // calculate the grade based on average
    public void calculateGrade(){
-     int average = calculateAverage();
+      average = calculateAverage();
      if (average >= 90){
         System.out.println("Grade A");
      } else if (average >= 75){

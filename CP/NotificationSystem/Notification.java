@@ -123,27 +123,31 @@ class NotificationTest{
         System.out.println("3. WhatsApp");
 
         int choice = scanner.nextInt();
+        scanner.nextLine();
 
         switch(choice){
             case 1:
                 System.out.println("Enter your message: ");
-                String emailMessage = scanner.next();
+                String emailMessage = scanner.nextLine();
                 Notifier emailNotifier = new EmailNotifier();
-                emailNotifier.send(emailMessage);
+                NotificationService emailService = new NotificationService(emailNotifier);
+                emailService.notifyUser(emailMessage);
                 break;
 
             case 2:
                 System.out.println("Enter your message: ");
-                String smsMessage = scanner.next();
+                String smsMessage = scanner.nextLine();
                 Notifier smsNotifier = new SMSNotifier();
-                smsNotifier.send(smsMessage);
+                NotificationService smsService = new NotificationService(smsNotifier);
+                smsService.notifyUser(smsMessage);
                 break;
 
             case 3:
                 System.out.println("Enter your message: ");
-                String whatsappMessage = scanner.next();
+                String whatsappMessage = scanner.nextLine();
                 Notifier whatsappNotifier = new WhatsAppNotifier();
-                whatsappNotifier.send(whatsappMessage);
+                NotificationService whatsappService = new NotificationService(whatsappNotifier);
+                whatsappService.notifyUser(whatsappMessage);
                 break;
 
             default:

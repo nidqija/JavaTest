@@ -1,4 +1,4 @@
-package Test;
+package CP.SmartParkingsystem.Test;
 
 import java.util.Vector;
 

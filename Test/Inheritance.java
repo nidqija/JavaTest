@@ -1,4 +1,4 @@
-package Test;
+package CP.SmartParkingsystem.Test;
 
 class Vehicle {
     protected  String brand = "Ford";

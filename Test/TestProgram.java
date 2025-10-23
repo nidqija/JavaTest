@@ -30,7 +30,7 @@
 
 
 
-    package Test;
+    package CP.SmartParkingsystem.Test;
 
     interface Playable {
         void play();

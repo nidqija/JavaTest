@@ -1,4 +1,4 @@
-package Test;
+package CP.SmartParkingsystem.Test;
 public class Account {
     double balance;
     int acc_number;

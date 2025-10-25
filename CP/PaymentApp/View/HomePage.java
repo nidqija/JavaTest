@@ -17,6 +17,7 @@ public class HomePage extends JFrame{
 
 
     public HomePage(String title){
+        
         super(title); // calls Jframe constructor to call the title //
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,6 +29,9 @@ public class HomePage extends JFrame{
 
         JButton button1 = new JButton("Deposit");
         button1.setPreferredSize(new Dimension(120, 40));
+
+        // action listener for deposit button //
+        // this is used to redirect to deposit page //
 
         button1.addActionListener( new ActionListener(){
             @Override
@@ -45,15 +49,18 @@ public class HomePage extends JFrame{
         JButton button3 = new JButton("Withdraw");
         button3.setPreferredSize(new Dimension(120 , 40));
 
+        // center alignment for all components //
+
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         button1.setAlignmentX(Component.CENTER_ALIGNMENT);
         button2.setAlignmentX(Component.CENTER_ALIGNMENT);
         button3.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // create a panel to hold components in vertical layout //
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
-
+        // add components to panel with vertical spacing //
         buttonPanel.add(Box.createVerticalGlue());
         buttonPanel.add(label);
 
@@ -66,13 +73,16 @@ public class HomePage extends JFrame{
         buttonPanel.add(Box.createVerticalGlue());
         buttonPanel.add(button3);
 
+        // add panel to frame //
         add(buttonPanel, BorderLayout.CENTER);
 
-        
+        // finalize frame settings //
         pack(); 
 
+        // center the frame on the screen //
         setLocationRelativeTo(null);
          
+        // make the frame visible //
         setVisible(true); 
 
     }

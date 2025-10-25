@@ -3,12 +3,15 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 
 public class HomePage extends JFrame{
 
@@ -25,6 +28,16 @@ public class HomePage extends JFrame{
 
         JButton button1 = new JButton("Deposit");
         button1.setPreferredSize(new Dimension(120, 40));
+
+        button1.addActionListener( new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                DepositPage depositPage = new DepositPage();
+                depositPage.setVisible(true);
+                
+            }
+        });
 
         JButton button2 = new JButton("Check Balance");
         button2.setPreferredSize(new Dimension(120 , 40));

@@ -1,9 +1,9 @@
 package CP.PaymentApp.View;
 import CP.PaymentApp.Controller.RegisterAccount;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class SignInPage extends JFrame {
     public SignInPage(){
@@ -49,7 +49,8 @@ public class SignInPage extends JFrame {
 
 
         JLabel successLabel = new JLabel();
-        successLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        successLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        successLabel.setVerticalAlignment(SwingConstants.TOP);
 
         // === Panel with vertical layout ===
         JPanel signinPanel = new JPanel();
@@ -88,7 +89,9 @@ public class SignInPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e){
                 RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()));
-                successLabel.setText("Your account is : " + account.getFullName());
+                String output = "<html>Sign In Successful!<br/>" + "Name: " + account.getFullName() + "<br/>Account Number: " + account.getAccountNum() + "</html>";
+                successLabel.setText(output);
+              
             }   
         });
         

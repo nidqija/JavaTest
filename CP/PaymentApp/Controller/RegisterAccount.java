@@ -9,7 +9,6 @@ public class RegisterAccount {
     public RegisterAccount(String fullName , int accountNumber ){
         this.fullName = fullName;
         this.accountNumber = accountNumber;
-       
     }
 
     public String getFullName(){

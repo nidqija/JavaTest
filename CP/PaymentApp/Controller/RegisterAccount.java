@@ -6,15 +6,18 @@ public class RegisterAccount {
     private int accountNumber;
     private double amount;
 
-    public RegisterAccount(String fullName , int accountNumber , double amount){
+    public RegisterAccount(String fullName , int accountNumber ){
         this.fullName = fullName;
         this.accountNumber = accountNumber;
-        this.amount = amount;
-
+       
     }
 
     public String getFullName(){
         return fullName;
+    }
+
+    public void setFullName( String fullname){
+        fullName = fullname;
     }
 
     public int getAccountNum(){

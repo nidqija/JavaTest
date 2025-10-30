@@ -1,6 +1,9 @@
 package CP.PaymentApp.View;
-import java.awt.*;
+import CP.PaymentApp.Controller.RegisterAccount;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SignInPage extends JFrame {
     public SignInPage(){
@@ -44,6 +47,10 @@ public class SignInPage extends JFrame {
         JButton signInButton = new JButton("Sign In");
         signInButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+
+        JLabel successLabel = new JLabel();
+        successLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         // === Panel with vertical layout ===
         JPanel signinPanel = new JPanel();
         signinPanel.setLayout(new BoxLayout(signinPanel, BoxLayout.Y_AXIS));
@@ -62,13 +69,29 @@ public class SignInPage extends JFrame {
         signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
         signinPanel.add(noAccountField);
 
+        signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
+        signinPanel.add(successLabel);
+
         signinPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         signinPanel.add(signInButton);
 
         signinPanel.add(Box.createVerticalGlue());
 
-        // === Add panel to frame ===
+      
         add(signinPanel);
+
+
+
+// ================================ Logic for sign-in button ================================== //
+
+        signInButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()));
+                successLabel.setText("Your account is : " + account.getFullName());
+            }   
+        });
+        
 
         pack();
         setLocationRelativeTo(null);

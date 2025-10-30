@@ -1,17 +1,7 @@
 package CP.PaymentApp.View;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class HomePage extends JFrame{
 
@@ -26,6 +16,20 @@ public class HomePage extends JFrame{
 
 
         JLabel label = new JLabel("Welcome to Bank App!");
+
+        JButton button = new JButton("Sign In");
+        button.setPreferredSize(new Dimension(120, 40));
+ 
+        button.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                SignInPage SignInpage = new SignInPage();
+                SignInpage.setVisible(true);
+            }
+        });
+
+
 
         JButton button1 = new JButton("Deposit");
         button1.setPreferredSize(new Dimension(120, 40));
@@ -52,6 +56,7 @@ public class HomePage extends JFrame{
         // center alignment for all components //
 
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button1.setAlignmentX(Component.CENTER_ALIGNMENT);
         button2.setAlignmentX(Component.CENTER_ALIGNMENT);
         button3.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -61,8 +66,12 @@ public class HomePage extends JFrame{
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
         // add components to panel with vertical spacing //
+
         buttonPanel.add(Box.createVerticalGlue());
         buttonPanel.add(label);
+
+        buttonPanel.add(Box.createVerticalGlue());
+        buttonPanel.add(button);
 
         buttonPanel.add(Box.createVerticalGlue());
         buttonPanel.add(button1);

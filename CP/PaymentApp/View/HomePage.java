@@ -19,7 +19,10 @@ public class HomePage extends JFrame{
 
         JButton button = new JButton("Sign In");
         button.setPreferredSize(new Dimension(120, 40));
- 
+
+        // action listener for sign in button //
+        // this is used to redirect to sign in page //
+
         button.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){

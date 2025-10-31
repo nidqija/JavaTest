@@ -1,13 +1,13 @@
 package CP.PaymentApp;
 
-import CP.PaymentApp.View.HomePage;
+import CP.PaymentApp.View.SignInPage;
 
 
 public class Main {
     public static void main(String[] args) {
         
-        HomePage homepage = new HomePage("Home Page");
-        homepage.pack();
+        SignInPage signInPage = new SignInPage();
+        signInPage.setVisible(true);
 
         
     }

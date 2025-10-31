@@ -5,6 +5,13 @@ import javax.swing.*;
 
 public class HomePage extends JFrame{
 
+    private JLabel infoDisplay;
+    public String text;
+
+    public void setTextInfo(String text){
+        this.text = text;
+        infoDisplay.setText(text);
+    }
 
     public HomePage(String title){
         
@@ -56,6 +63,16 @@ public class HomePage extends JFrame{
         JButton button3 = new JButton("Withdraw");
         button3.setPreferredSize(new Dimension(120 , 40));
 
+// ===================display information label==============================//
+
+        infoDisplay = new JLabel();
+        infoDisplay.setPreferredSize(new Dimension(120 , 40));
+        
+        infoDisplay.setText(text);
+        
+
+
+
         // center alignment for all components //
 
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -63,6 +80,7 @@ public class HomePage extends JFrame{
         button1.setAlignmentX(Component.CENTER_ALIGNMENT);
         button2.setAlignmentX(Component.CENTER_ALIGNMENT);
         button3.setAlignmentX(Component.CENTER_ALIGNMENT);
+        infoDisplay.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // create a panel to hold components in vertical layout //
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -84,6 +102,9 @@ public class HomePage extends JFrame{
 
         buttonPanel.add(Box.createVerticalGlue());
         buttonPanel.add(button3);
+
+        buttonPanel.add(Box.createVerticalGlue());
+        buttonPanel.add(infoDisplay);
 
         // add panel to frame //
         add(buttonPanel, BorderLayout.CENTER);

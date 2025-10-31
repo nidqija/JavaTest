@@ -90,12 +90,14 @@ public class SignInPage extends JFrame {
             public void actionPerformed(ActionEvent e){
                 RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()));
                 String output = "<html>Sign In Successful!<br/>" + "Name: " + account.getFullName() + "<br/>Account Number: " + account.getAccountNum() + "</html>";
-                successLabel.setText(output);
+                
+                
                 dispose();
                 HomePage homePage = new HomePage("Home Page");
+                homePage.setTextInfo(output);
                 homePage.setVisible(true);
-              
-            }   
+
+            }
         });
         
 

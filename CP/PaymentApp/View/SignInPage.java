@@ -43,6 +43,11 @@ public class SignInPage extends JFrame {
         noAccountField.setMaximumSize(new Dimension(200, 200));
         noAccountField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+
+        JTextField amountField = new JTextField(20);
+        amountField.setMaximumSize(new Dimension(200 , 200));
+        amountField.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         // === Sign-in button ===
         JButton signInButton = new JButton("Sign In");
         signInButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -71,6 +76,9 @@ public class SignInPage extends JFrame {
         signinPanel.add(noAccountField);
 
         signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
+        signinPanel.add(amountField);
+
+        signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
         signinPanel.add(successLabel);
 
         signinPanel.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -88,10 +96,8 @@ public class SignInPage extends JFrame {
         signInButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()));
-                String output = "<html>Sign In Successful!<br/>" + "Name: " + account.getFullName() + "<br/>Account Number: " + account.getAccountNum() + "</html>";
-                
-                
+                RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()) , Double.parseDouble(amountField.getText()));
+                String output = "<html>Sign In Successful!<br/>" + "Name: " + account.getFullName() + "<br/>Account Number: " + account.getAccountNum() + "<br/>Amount: " + account.getAmount() + "</html>";
                 dispose();
                 HomePage homePage = new HomePage("Home Page");
                 homePage.setTextInfo(output);

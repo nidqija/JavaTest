@@ -66,7 +66,7 @@ public class HomePage extends JFrame{
 // ===================display information label==============================//
 
         infoDisplay = new JLabel();
-        infoDisplay.setPreferredSize(new Dimension(120 , 40));
+        infoDisplay.setPreferredSize(new Dimension(120 , 120));
         
         infoDisplay.setText(text);
         

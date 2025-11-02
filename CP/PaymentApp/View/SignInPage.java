@@ -43,6 +43,9 @@ public class SignInPage extends JFrame {
         noAccountField.setMaximumSize(new Dimension(200, 200));
         noAccountField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+    
+        JLabel label4 = new JLabel("Initial Amount:");
+        label4.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JTextField amountField = new JTextField(20);
         amountField.setMaximumSize(new Dimension(200 , 200));
@@ -74,6 +77,9 @@ public class SignInPage extends JFrame {
 
         signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
         signinPanel.add(noAccountField);
+
+        signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
+        signinPanel.add(label4);
 
         signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
         signinPanel.add(amountField);

@@ -52,10 +52,15 @@ public class SignInPage extends JFrame {
         amountField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // === Sign-in button ===
+
         JButton signInButton = new JButton("Sign In");
-        signInButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton loginButton =  new JButton("Login");
 
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+        panel.add(signInButton);
+        panel.add(loginButton);
 
+    
         JLabel successLabel = new JLabel();
         successLabel.setHorizontalAlignment(SwingConstants.CENTER);
         successLabel.setVerticalAlignment(SwingConstants.TOP);
@@ -91,6 +96,8 @@ public class SignInPage extends JFrame {
         signinPanel.add(signInButton);
 
         signinPanel.add(Box.createVerticalGlue());
+        signinPanel.add(Box.createRigidArea(new Dimension(20 , 20)));
+        signinPanel.add(panel);
 
       
         add(signinPanel);

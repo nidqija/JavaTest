@@ -1,9 +1,9 @@
 package CP.PaymentApp.View;
-import CP.PaymentApp.Controller.RegisterAccount;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import CP.PaymentApp.Model.RegisterAccount;
+
 
 public class SignInPage extends JFrame {
     public SignInPage(){
@@ -116,6 +116,16 @@ public class SignInPage extends JFrame {
                 homePage.setTextInfo(output);
                 homePage.setVisible(true);
 
+            }
+        });
+
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                LoginPage loginPage = new LoginPage();
+                loginPage.setVisible(true);
             }
         });
         

@@ -1,7 +1,6 @@
 package CP.PaymentApp.View;
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 
 
@@ -14,7 +13,26 @@ public class LoginPage extends JFrame {
         JLabel label = new JLabel("This is the Login Page");
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        add(label);
+        JLabel accountLabel = new JLabel("Account Number: ");
+        accountLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+
+    
+
+        JPanel loginPanel = new JPanel();
+        loginPanel.setLayout(new BoxLayout(loginPanel , BoxLayout.Y_AXIS));
+        loginPanel.add(Box.createVerticalGlue());
+
+       
+    
+
+
+        loginPanel.add(label);
+
+
+
+
+        add(loginPanel);
         pack();
         setVisible(true);
     }

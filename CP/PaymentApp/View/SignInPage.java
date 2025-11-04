@@ -2,7 +2,9 @@ package CP.PaymentApp.View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import CP.PaymentApp.Model.RegisterAccount;
+import CP.PaymentApp.Controller.RegisterAccount;
+import java.io.*;
+
 
 
 public class SignInPage extends JFrame {
@@ -51,7 +53,7 @@ public class SignInPage extends JFrame {
         amountField.setMaximumSize(new Dimension(200 , 200));
         amountField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // === Sign-in button ===
+        // === Sign-in button === 
 
         JButton signInButton = new JButton("Sign In");
         JButton loginButton =  new JButton("Login");
@@ -95,8 +97,8 @@ public class SignInPage extends JFrame {
         signinPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         signinPanel.add(signInButton);
 
-        signinPanel.add(Box.createVerticalGlue());
-        signinPanel.add(Box.createRigidArea(new Dimension(20 , 20)));
+        signinPanel.add(Box.createHorizontalGlue());
+        signinPanel.add(Box.createRigidArea(new Dimension(0 , 20)));
         signinPanel.add(panel);
 
       
@@ -109,8 +111,19 @@ public class SignInPage extends JFrame {
         signInButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()) , Double.parseDouble(amountField.getText()));
+                CP.PaymentApp.Controller.RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()) , Double.parseDouble(amountField.getText()));
                 String output = "<html>Sign In Successful!<br/>" + "Name: " + account.getFullName() + "<br/>Account Number: " + account.getAccountNum() + "<br/>Amount: " + account.getAmount() + "</html>";
+                String filePath = "accounts.csv";
+                String fileContent = account.getFullName() + "," + account.getAccountNum() + "," + account.getAmount() + "\n";
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath , true))){
+                    writer.write(fileContent);
+                    System.out.println("Account information for " + fileContent + "has been saved to" + filePath);
+
+                } catch (IOException ex){
+                    System.out.println("Error writing to file: " + ex.getMessage());
+                }
+
+
                 dispose();
                 HomePage homePage = new HomePage("Home Page");
                 homePage.setTextInfo(output);
@@ -128,6 +141,11 @@ public class SignInPage extends JFrame {
                 loginPage.setVisible(true);
             }
         });
+
+        
+
+
+
         
 
         pack();

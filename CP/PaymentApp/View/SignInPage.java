@@ -1,9 +1,10 @@
 package CP.PaymentApp.View;
-import javax.swing.*;
+import CP.PaymentApp.Controller.RegisterAccount;
+import CP.PaymentApp.Models.WriteCSV;
 import java.awt.*;
 import java.awt.event.*;
-import CP.PaymentApp.Controller.RegisterAccount;
 import java.io.*;
+import javax.swing.*;
 
 
 
@@ -13,7 +14,6 @@ public class SignInPage extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(700, 700));
 
-        // === Label ===
 
 
 // ======================================================================================
@@ -111,15 +111,30 @@ public class SignInPage extends JFrame {
         signInButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+
                 CP.PaymentApp.Controller.RegisterAccount account = new RegisterAccount(nameField.getText(), Integer.parseInt(noAccountField.getText()) , Double.parseDouble(amountField.getText()));
+
                 String output = "<html>Sign In Successful!<br/>" + "Name: " + account.getFullName() + "<br/>Account Number: " + account.getAccountNum() + "<br/>Amount: " + account.getAmount() + "</html>";
-                String filePath = "accounts.csv";
+
+                // locate file to save account info //
+                WriteCSV  writeCSV = new WriteCSV();
+                String filePath = writeCSV.getFilePath();
+
+                // prepare content to write to csv file //
                 String fileContent = account.getFullName() + "," + account.getAccountNum() + "," + account.getAmount() + "\n";
+
+                // try and except for writing to file //
+                // append mode set to true //
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath , true))){
+
+                    // write to file //
                     writer.write(fileContent);
+
+                    // send confirmation to console //
                     System.out.println("Account information for " + fileContent + "has been saved to" + filePath);
 
                 } catch (IOException ex){
+                    // handle exception if error occurs during file writing //
                     System.out.println("Error writing to file: " + ex.getMessage());
                 }
 
@@ -143,11 +158,6 @@ public class SignInPage extends JFrame {
         });
 
         
-
-
-
-        
-
         pack();
         setLocationRelativeTo(null);
         setVisible(true);

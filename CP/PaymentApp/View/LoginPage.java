@@ -1,5 +1,8 @@
 package CP.PaymentApp.View;
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 import javax.swing.*;
 
 
@@ -52,6 +55,14 @@ public class LoginPage extends JFrame {
         loginPanel.add(pinNumField);
         loginPanel.add(loginButton);
         loginPanel.add(Box.createVerticalGlue());
+
+
+        loginButton.addActionListener(new ActionListener(){
+          @Override
+          public void actionPerformed(ActionEvent e){
+            CP.PaymentApp.Controller.
+          }
+        });
 
 
         

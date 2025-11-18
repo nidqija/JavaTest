@@ -16,6 +16,18 @@ public class SessionUser {
         this.loggedIn = true;
     }
 
+    public String getFullName(){
+        return fullName;
+    }
+
+    public int getAccountNumber(){
+        return accountNumber;
+    }
+
+    public double getAmount(){
+        return amount;
+    }
+
     public static SessionUser getInstance(String fullName , int accountNumber , double amount){
         if(instance == null){
             instance = new SessionUser(fullName, accountNumber, amount);

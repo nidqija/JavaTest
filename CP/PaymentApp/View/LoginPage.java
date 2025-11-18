@@ -1,5 +1,5 @@
 package CP.PaymentApp.View;
-import javax.swing.*;
+import CP.PaymentApp.Models.WriteCSV;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -60,7 +60,43 @@ public class LoginPage extends JFrame {
         loginButton.addActionListener(new ActionListener(){
           @Override
           public void actionPerformed(ActionEvent e){
-            CP.PaymentApp.Controller.
+             String accountNumber = accountFieldInput.getText();
+             String pinNumber = pinNumField.getText();
+
+            
+            WriteCSV writeCSV = new WriteCSV();
+            String filePath = writeCSV.getFilePath();
+            String line = accountNumber;
+            boolean found = false;
+
+
+            try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
+                while((line = br.readLine())!= null){
+                  String[] values = line.split(",");
+                  for(String value : values){
+                    if(value.equals(accountNumber)){
+                      found = true;
+                      System.out.println("Login Successful!");
+
+                    }
+                  }
+                }
+                
+            } catch( IOException ex){
+              ex.printStackTrace();
+            }
+
+            if(!found){
+              System.out.println("Account not found. Please try again.");
+            }
+            
+          
+
+            
+
+            
+                       
+
           }
         });
 

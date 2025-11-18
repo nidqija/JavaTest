@@ -4,6 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class DepositPage extends JFrame{
+
+
+    private JLabel infoDisplay;
+
     public DepositPage(){
         super("Deposit Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -11,7 +15,17 @@ public class DepositPage extends JFrame{
 
         JLabel label = new JLabel("This is the Deposit Page");
         label.setHorizontalAlignment(JLabel.CENTER);
+        
+        JLabel label2 = new JLabel("Your deposit is: ");
+        label2.setHorizontalAlignment(JLabel.CENTER);
+
         add(label);
+
+        
+
+
+        
+      
 
         pack();
         setLocationRelativeTo(null);

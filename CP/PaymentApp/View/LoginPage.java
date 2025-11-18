@@ -1,4 +1,5 @@
 package CP.PaymentApp.View;
+import CP.PaymentApp.Controller.SessionUser;
 import CP.PaymentApp.Models.WriteCSV;
 import java.awt.*;
 import java.awt.event.*;
@@ -76,7 +77,13 @@ public class LoginPage extends JFrame {
                   for(String value : values){
                     if(value.equals(accountNumber)){
                       found = true;
-                      System.out.println("Login Successful!");
+                      String successMessage = "Login Successful!";
+                      dispose();
+                      HomePage homepage = new HomePage(line);
+                      SessionUser sessionUser = new SessionUser(values[0] , Integer.parseInt(values[1]), Double.parseDouble(values[2]));
+                      sessionUser.isLoggedIn();
+                      homepage.setTextInfo(successMessage);
+                      homepage.setVisible(true);
 
                     }
                   }

@@ -36,6 +36,10 @@ public class SessionUser {
         return instance;
     }
 
+    public static SessionUser getExistingInstance(){
+        return instance;
+    }
+
 
     public boolean isLoggedIn(){
          return loggedIn;

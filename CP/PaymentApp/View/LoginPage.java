@@ -78,9 +78,9 @@ public class LoginPage extends JFrame {
                     if(value.equals(accountNumber)){
                       found = true;
                       String successMessage = "Login Successful!";
+                      SessionUser sessionUser = SessionUser.getInstance(values[0] , Integer.parseInt(values[1]), Double.parseDouble(values[2]));
                       dispose();
-                      HomePage homepage = new HomePage(line);
-                      SessionUser sessionUser = new SessionUser(values[0] , Integer.parseInt(values[1]), Double.parseDouble(values[2]));
+                      HomePage homepage = new HomePage(values[0]);
                       sessionUser.isLoggedIn();
                       homepage.setTextInfo(successMessage);
                       homepage.setVisible(true);

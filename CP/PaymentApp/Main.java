@@ -1,5 +1,4 @@
 package CP.PaymentApp;
-
 import CP.PaymentApp.View.SignInPage;
 
 
@@ -8,6 +7,8 @@ public class Main {
         
         SignInPage signInPage = new SignInPage();
         signInPage.setVisible(true);
+
+        
 
         
         

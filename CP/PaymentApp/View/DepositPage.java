@@ -1,8 +1,8 @@
 package CP.PaymentApp.View;
 import CP.PaymentApp.Controller.SessionUser;
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class DepositPage extends JFrame{
 
@@ -13,13 +13,17 @@ public class DepositPage extends JFrame{
 
         setLayout(new GridLayout(3,1));
 
-        JLabel label = new JLabel("This is the Deposit Page");
-        label.setHorizontalAlignment(JLabel.CENTER);
-        add(label);
-
+        JPanel depositPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        depositPanel.setLayout(new BoxLayout(depositPanel, BoxLayout.Y_AXIS));
+        
+        
         JLabel label2 = new JLabel("Your deposit is: ");
-        label2.setHorizontalAlignment(JLabel.CENTER);
-        add(label2);
+        label2.setAlignmentX(Component.CENTER_ALIGNMENT);
+        depositPanel.add(label2);
+
+
+        add(depositPanel , BorderLayout.CENTER);
+       
 
         SessionUser currentUser = SessionUser.getExistingInstance();
 
@@ -29,8 +33,8 @@ public class DepositPage extends JFrame{
             nameLabel.setHorizontalAlignment(JLabel.CENTER);
             JLabel amountLabel = new JLabel("$" + currentUser.getAmount());
             amountLabel.setHorizontalAlignment(JLabel.CENTER);
-            add(nameLabel);
-            add(amountLabel);
+            depositPanel.add(nameLabel);
+            depositPanel.add(amountLabel);
             
 
         } else {
@@ -38,6 +42,22 @@ public class DepositPage extends JFrame{
             noUserLabel.setHorizontalAlignment(JLabel.CENTER);
             add(noUserLabel);
         }
+
+        JButton backButton = new JButton("Return to Home Page");
+        backButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        depositPanel.add(backButton);
+
+
+        backButton.addActionListener(new ActionListener(){
+           @Override
+           public void actionPerformed( ActionEvent e){
+            dispose();
+            HomePage homePage = new HomePage("Home Page");
+            homePage.setVisible(true);
+           }
+        });
+
+
 
         pack();
         setLocationRelativeTo(null);

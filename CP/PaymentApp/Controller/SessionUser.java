@@ -6,7 +6,7 @@ public class SessionUser {
     private double amount;
     private static SessionUser instance;
     private boolean loggedIn = false;
-
+    
     
 
     public SessionUser(String fullName , int accountNumber , double amount){

@@ -1,8 +1,7 @@
 package JavaTutorial;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Exercise1 extends JFrame {
     public static void main(String[] args) {
@@ -17,6 +16,14 @@ public class Exercise1 extends JFrame {
        JButton button1 = new JButton("Push me");
        button1.setBounds(20 , 20 ,100 ,20);
        panel.add(button1);
+
+       button1.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e){
+           JOptionPane.showMessageDialog(frame, "A Button was clicked!" , "Message" , JOptionPane.INFORMATION_MESSAGE);
+
+        }
+       });
 
 
        JButton button2 = new JButton("Click me");

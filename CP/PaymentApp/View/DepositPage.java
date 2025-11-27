@@ -56,6 +56,16 @@ public class DepositPage extends JFrame {
             JButton submitButton = new JButton("Submit");
             submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
             depositPanel.add(submitButton);
+
+            submitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    String depositText = depositField.getText();
+                    double depositAmount = Double.parseDouble(depositText);
+                    double newAmount = currentUser.getAmount() + depositAmount;
+
+                }
+            });
             
             depositPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
@@ -66,6 +76,9 @@ public class DepositPage extends JFrame {
             depositPanel.add(noUserLabel);
 
         }
+
+
+    
 
         JButton backButton = new JButton("Return to Home Page");
         backButton.setAlignmentX(Component.CENTER_ALIGNMENT);

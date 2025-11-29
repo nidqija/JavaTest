@@ -1,5 +1,7 @@
 package JavaTutorial;
+import java.awt.*;
 import javax.swing.*;
+
 
 
 
@@ -24,8 +26,17 @@ public class Exercise2 {
         timerLabel.setBounds(400 , 20 , 100 ,20);
         
 
-        JButton button1 = new JButton("Mole 1");
+        JButton button1 = new JButton();
         button1.setBounds(20 , 100 , 150 , 150);
+
+
+        ImageIcon moleIcon = new ImageIcon(Exercise2.class.getResource("baby.jpg"));
+        Image image = moleIcon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+        moleIcon = new ImageIcon(image);
+        button1.setIcon(moleIcon);
+        button1.setText("");
+
+
 
         JButton button2 = new JButton("Mole 2");
         button2.setBounds(170 , 100 , 150 , 150);

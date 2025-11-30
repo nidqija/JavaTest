@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class Exercise2 {
     private static int seconds = 0;
+    private static int lastIndex = -1;
     public static void main(String[] args){
 
 // ====================== defining frame and panel ========================= //
@@ -69,6 +70,10 @@ public class Exercise2 {
                         ImageIcon moleIcon = new ImageIcon(Exercise2.class.getResource("baby.jpg"));
                         Image image = moleIcon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
                         moleIcon = new ImageIcon(image);
+
+                        if(lastIndex != -1){
+                                babyButtons[lastIndex].setIcon(null);
+                        }
                         
                         for (JButton babyButton : babyButtons){
                                 babyButton.setText(null);
@@ -77,6 +82,8 @@ public class Exercise2 {
 
                         int index = (int)(Math.random() * babyButtons.length);
                         babyButtons[index].setIcon(moleIcon);
+
+                        lastIndex = index;
                 }
         });
 

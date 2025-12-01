@@ -110,6 +110,13 @@ public class Exercise2 {
 
                                 if(option == JOptionPane.OK_OPTION){
                                         stopSound();
+                                        score = 0;
+                                        seconds = 0;
+                                        scoreLabel.setText("Score : 0");
+                                        timerLabel.setText("Timer : 0s");
+                                        for (JButton btn : babyButtons){
+                                                btn.setIcon(null);
+                                        }
                                 }
 
                                 for (JButton btn : babyButtons){
@@ -153,9 +160,7 @@ public class Exercise2 {
                     timerLabel.setText("Timer : 0s");
                     
 
-                    for (JButton btn : babyButtons){
-                        btn.setIcon(null);
-                    }
+                   
 
                     playSound(Exercise2.class.getResource("/JavaTutorial/AI Baby holding laugh meme vs original.wav"));
 

@@ -12,10 +12,12 @@ public class DrawingProgram extends JFrame {
 		setSize(800,600);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add( new Drawing() , BorderLayout.CENTER);
+		setVisible(true);
 	}
 	
 	public static void main(String[] a){
-		new DrawingProgram();
+		SwingUtilities.invokeLater(DrawingProgram::new);
 	}
 
 }

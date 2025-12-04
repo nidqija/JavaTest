@@ -44,20 +44,21 @@ public class Drawing extends JPanel {
     
     // this function is called whenever the panel needs to be repainted //
    
-     @Override
-       protected void paintComponent(Graphics g){
-         super.paintComponent(g);
-         g.setColor(Color.white);
-         
+    @Override
+protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
 
-        for(List<Point> stroke :strokes ){
-            for(int i = 0 ; i < stroke.size() - 1 ; i++){
-                Point p1 = stroke.get(i - 1);
-                Point p2 = stroke.get(i);
-                g.drawLine(p1.x, p1.y, p2.x, p2.y);
-            }
+    g.setColor(Color.BLACK);
+
+    for (List<Point> stroke : strokes) {
+        for (int i = 0; i < stroke.size() - 1; i++) {
+            Point p1 = stroke.get(i);
+            Point p2 = stroke.get(i + 1);
+            g.drawLine(p1.x, p1.y, p2.x, p2.y);
         }
-       }
+    }
+}
+
 
 
     

@@ -13,10 +13,16 @@ import javax.swing.*;
 
 public class Drawing extends JPanel {
 
+// a list to store all the strokes made by the user //
     private final List<Stroke> strokes =  new ArrayList<>();
+
+// the current stroke being drawn //
     private Stroke currentStroke;
+
+// default drawing color //
     private Color currentColor = Color.BLACK;
 
+// a class to represent a stroke made by the user //
       private static class Stroke {
         Color color;
         List<Point> points;
@@ -28,6 +34,7 @@ public class Drawing extends JPanel {
     }
   
 
+// constructor //
     public Drawing(){
         setBackground(Color.WHITE);
 
@@ -56,12 +63,12 @@ public class Drawing extends JPanel {
 
     }
 
-
+// function to set the current drawing color //
     public void setCurrentColor(Color color){
         this.currentColor = color;
     }
     
-    // this function is called whenever the panel needs to be repainted //
+// this function is called whenever the panel needs to be repainted //
    
     @Override
 protected void paintComponent(Graphics g) {

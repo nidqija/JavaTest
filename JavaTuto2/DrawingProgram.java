@@ -28,6 +28,7 @@ public class DrawingProgram extends JFrame {
 		JButton btn = new JButton("Add Color");
 		toolbar.add(btn);
 
+	// action listener for button to open color choose panel //
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){

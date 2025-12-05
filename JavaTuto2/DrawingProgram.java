@@ -25,10 +25,22 @@ public class DrawingProgram extends JFrame {
 		JButton btn = new JButton("Add Color");
 		toolbar.add(btn);
 
+
+		Drawing drawing = new Drawing();
+		add(drawing, BorderLayout.CENTER);
+
+
+		
+
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e){
-              // to be implemented later //
+              JColorChooser colorChooser = new JColorChooser();
+			  Color color = colorChooser.showDialog(btn, "Choose a color", Color.BLACK);
+              
+			  if ( color != null){
+				drawing.setCurrentColor(color);
+			  }
 			}
 		});
 	}

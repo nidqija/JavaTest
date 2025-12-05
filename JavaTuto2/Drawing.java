@@ -41,6 +41,10 @@ public class Drawing extends JPanel {
 
     }
 
+
+    public void setCurrentColor(Color color){
+        // to be implemented later //
+    }
     
     // this function is called whenever the panel needs to be repainted //
    

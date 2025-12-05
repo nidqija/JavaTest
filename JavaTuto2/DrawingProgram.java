@@ -18,19 +18,15 @@ public class DrawingProgram extends JFrame {
 		setSize(800,600);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		add( new Drawing() , BorderLayout.CENTER);
-		setVisible(true);
-
-
-		JButton btn = new JButton("Add Color");
-		toolbar.add(btn);
 
 
 		Drawing drawing = new Drawing();
-		add(drawing, BorderLayout.CENTER);
 
+		add(drawing , BorderLayout.CENTER);
+		setVisible(true);
 
-		
+		JButton btn = new JButton("Add Color");
+		toolbar.add(btn);
 
 		btn.addActionListener(new ActionListener() {
 			@Override

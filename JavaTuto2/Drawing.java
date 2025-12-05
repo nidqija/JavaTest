@@ -9,10 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
+
+
 public class Drawing extends JPanel {
 
-    private final List<List<Point>> strokes =  new ArrayList<>();
-    private List<Point> currentStroke;
+    private final List<Stroke> strokes =  new ArrayList<>();
+    private Stroke currentStroke;
+    private Color currentColor = Color.BLACK;
+
+      private static class Stroke {
+        Color color;
+        List<Point> points;
+
+        Stroke(Color color){
+            this.color = color;
+            this.points = new ArrayList<>();
+        }
+    }
+  
 
     public Drawing(){
         setBackground(Color.WHITE);
@@ -21,8 +35,9 @@ public class Drawing extends JPanel {
         addMouseListener(new MouseAdapter(){
             @Override
             public void mousePressed(MouseEvent e){
-                currentStroke = new ArrayList<>();
-                currentStroke.add(e.getPoint());
+
+                currentStroke = new Stroke(currentColor);
+                currentStroke.points.add(e.getPoint());
                 strokes.add(currentStroke);
                 repaint();
             }
@@ -34,7 +49,7 @@ public class Drawing extends JPanel {
        addMouseMotionListener(new MouseMotionAdapter(){
          @Override
          public void mouseDragged(MouseEvent e){
-            currentStroke.add(e.getPoint());
+            currentStroke.points.add(e.getPoint());
             repaint();
          }
        });
@@ -43,7 +58,7 @@ public class Drawing extends JPanel {
 
 
     public void setCurrentColor(Color color){
-        // to be implemented later //
+        this.currentColor = color;
     }
     
     // this function is called whenever the panel needs to be repainted //
@@ -51,13 +66,15 @@ public class Drawing extends JPanel {
     @Override
 protected void paintComponent(Graphics g) {
     super.paintComponent(g);
+    Color color;
 
     g.setColor(Color.BLACK);
 
-    for (List<Point> stroke : strokes) {
-        for (int i = 0; i < stroke.size() - 1; i++) {
-            Point p1 = stroke.get(i);
-            Point p2 = stroke.get(i + 1);
+    for (Stroke stroke : strokes) {
+        g.setColor(stroke.color);
+        for (int i = 0; i < stroke.points.size() - 1; i++) {
+            Point p1 = stroke.points.get(i);
+            Point p2 = stroke.points.get(i + 1);
             g.drawLine(p1.x, p1.y, p2.x, p2.y);
         }
     }

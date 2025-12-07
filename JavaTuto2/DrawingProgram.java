@@ -40,7 +40,27 @@ public class DrawingProgram extends JFrame {
 			  }
 			}
 		});
+
+			JButton strokeSizeBtn = new JButton("Set Stroke Size");
+
+			strokeSizeBtn.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e){
+					String input = JOptionPane.showInputDialog("Enter your preffered size");
+					try {
+						int size = Integer.parseInt(input);
+						drawing.setStrokeWidth(size);
+
+					} catch (NumberFormatException ex){
+						JOptionPane.showMessageDialog(strokeSizeBtn, "Invalid size entered" , "Error" , JOptionPane.ERROR_MESSAGE);
+				} 
+			}
+			});
+
+	        toolbar.add(strokeSizeBtn);
 	}
+
+
 	
 	public static void main(String[] a){
 		SwingUtilities.invokeLater(DrawingProgram::new);

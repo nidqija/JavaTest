@@ -39,16 +39,16 @@ public class Piano {
 
 
 		JFrame frame = new JFrame("Pea-Air-Know");
-		JButton[] w = new JButton[7];
-		JButton[] b = new JButton[6];
+		JButton[] w = new JButton[15];
+		JButton[] b = new JButton[14];
 		JLayeredPane panel = new JLayeredPane();
 		frame.add(panel);
 
-        int whiteNotes[] = { 60 , 62 , 64 , 65 , 67 , 69 , 71 };
-        int blackNotes[] = { 61 , 63 , 66 , 68 , 70 , 72 };
+        int whiteNotes[] = { 60 , 62 , 64 , 65 , 67 , 69 , 71 , 72 , 74 , 76 , 77 , 79 , 81 , 83 , 85 };
+        int blackNotes[] = { 61 , 63 , 66 , 68 , 70 , 72 , 73 , 75 , 78 , 80 , 82 , 82 , 84 , 86 };
 
 
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 15; i++) {
 			w[i] = new JButton();
 			w[i].setBackground(Color.WHITE);
 			w[i].setLocation(i * 70, 0);
@@ -70,18 +70,23 @@ public class Piano {
             });
 		}
 
-		for (int i = 0; i < 6; i++) {
-			if (i==2)
-				continue;
-			b[i] = new JButton();
-			b[i].setBackground(Color.BLACK);
-			b[i].setLocation(35 + i * 70, 0);
-			b[i].setSize(70, 150);
-			panel.add(b[i], 1, -1);
+        int blackIndex = 0;
+		for (int i = 0; i < 14; i++) {
+			if (i==2) continue; // skip space for E-F
+            if (i == 6) continue; // skip space for B-C
+            if ( i == 9) continue; // skip space for E-F
+            if (i == 13 ) continue;
 
-            final int note = blackNotes[i];
+			b[blackIndex] = new JButton();
+			b[blackIndex].setBackground(Color.BLACK);
+            // set location and size of the black keys //
+			b[blackIndex].setLocation(35 + i * 70, 0);
+			b[blackIndex].setSize(70, 150);
+			panel.add(b[blackIndex], new Integer(1));
 
-            b[i].addMouseListener(new java.awt.event.MouseAdapter(){
+            final int note = blackNotes[blackIndex];
+
+            b[blackIndex].addMouseListener(new java.awt.event.MouseAdapter(){
                 public void mousePressed(java.awt.event.MouseEvent e){
                     playNote(note);
                 }
@@ -90,10 +95,12 @@ public class Piano {
                     stopNote(note);
                 }
             });
+
+            blackIndex++;
 		}
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 320);
+		frame.setSize(990, 320);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}
